@@ -1,0 +1,56 @@
+{{ $global := . }}
+{{- range $component := .Values.components }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $component.name }}-deployment
+  namespace: {{ $global.Values.namespace }}
+  labels:
+    {{- include "common.labels" $global | indent 4 }}
+    app.kubernetes.io/component: {{ $component.name }}
+    app.kubernetes.io/runtime: {{ $component.runtime }}
+spec:
+  selector:
+    matchLabels:
+      name: {{ $component.name }}-selector
+  replicas: {{ $component.replicas }}
+  template:
+    metadata:
+      labels:
+        name: {{ $component.name }}-selector
+    spec:
+      containers:
+        - name: {{ $component.name }}
+          image: {{ $component.image }}
+          imagePullPolicy: Always
+          env:
+            {{- range $env := $component.envs }}
+            {{- range $key, $value := $env }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $component.name }}-secret
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
+          resources:
+            requests:
+              memory: '32Mi'
+              cpu: '200m'
+            limits:
+              memory: '64Mi'
+              cpu: '250m'
+          ports:
+            - containerPort: {{ $component.targetPort }}
+              protocol: TCP
+              name: {{ $component.portName }}
+          # readinessProbe:
+          #   httpGet:
+          #     path: /ready
+          #     port: {{ $component.targetPort }}
+          # livenessProbe:
+          #   httpGet:
+          #     path: /live
+          #     port: {{ $component.targetPort }}
+{{- end }}

@@ -1,0 +1,22 @@
+{{ $global := . }}
+{{- range $component := .Values.components }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $component.name }}-service
+  namespace: {{ $global.Values.namespace }}
+  labels:
+    {{- include "common.labels" $global | indent 4 }}
+    app.kubernetes.io/component: {{ $component.name }}
+spec:
+  ports:
+    - name: {{ $component.portName }}
+      port: {{ $component.port }}
+      protocol: TCP
+      targetPort: {{ $component.targetPort }}
+  selector:
+    name: {{ $component.name }}-selector
+  sessionAffinity: None
+  type: ClusterIP
+{{- end }}

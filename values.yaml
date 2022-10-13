@@ -1,0 +1,22 @@
+namespace: cp-system-demo
+
+components:
+  - name: web
+    image: us.icr.io/pak-system/demo-web:latest
+    runtime: nginx
+    replicas: 1
+    envs:
+      - REACT_APP_API_URL: ""
+    portName: http
+    port: 8080
+    targetPort: 8080
+
+  - name: proxy
+    image: us.icr.io/pak-system/demo-proxy:latest
+    runtime: nodejs
+    replicas: 1
+    envs:
+      - TARGET_URL: ""
+    portName: http
+    port: 8080
+    targetPort: 8080
