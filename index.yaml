@@ -1,14 +1,14 @@
 apiVersion: v1
 entries:
-  cp-system-demo:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-10-13T09:55:11.092987-03:00"
-    description: A Helm chart for Kubernetes
-    digest: 2d0baddcb3be3526e2d3e7dc91b78d04998a2a38e55c76e12eae8479f8daee1e
-    name: cp-system-demo
-    type: application
-    urls:
-    - https://ibmgaragela.github.io/pak-system-demo-chart/cp-system-demo-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-10-13T09:55:11.092337-03:00"
+  pak-system-demo:
+    - apiVersion: v2
+      appVersion: 1.16.0
+      created: "2022-10-17T15:25:12.317421-03:00"
+      description: A Helm chart for Kubernetes
+      digest: 7ea88e4529ae510f4a5e16a1494e8a7a7ba000a934fd6ce582bfd2e2afa98c09
+      name: pak-system-demo
+      type: application
+      urls:
+        - https://ibmgaragela.github.io/pak-system-demo-chart/pak-system-demo-0.1.0.tgz
+      version: 0.1.0
+generated: "2022-10-17T15:25:12.316057-03:00"
