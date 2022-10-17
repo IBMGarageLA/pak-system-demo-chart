@@ -53,4 +53,6 @@ spec:
           #   httpGet:
           #     path: /live
           #     port: {{ $component.targetPort }}
+      imagePullSecrets:
+        - name: registry
 {{- end }}

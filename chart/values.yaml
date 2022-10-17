@@ -1,4 +1,9 @@
-namespace: cp-system-demo
+namespace: pak-system-demo
+
+imageCredentials:
+  registry: ""
+  username: ""
+  password: ""
 
 components:
   - name: web
@@ -16,7 +21,7 @@ components:
     runtime: nodejs
     replicas: 1
     envs:
-      - TARGET_URL: ""
+      - TARGET_URL: "g"
     portName: http
     port: 8080
     targetPort: 8080
