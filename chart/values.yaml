@@ -6,7 +6,7 @@ components:
     runtime: nginx
     replicas: 1
     envs:
-      - REACT_APP_API_URL: "https://proxy-route-pak-system-demo.hybrid-mng-cluster-72eda05028d3eaf144f16ab86d45c024-0000.us-south.containers.appdomain.cloud"
+      - REACT_APP_API_URL: "proxy-route-pak-system-mngm.hybrid-mng-cluster-72eda05028d3eaf144f16ab86d45c024-0000.us-south.containers.appdomain.cloud"
     portName: http
     port: 8080
     targetPort: 8080
