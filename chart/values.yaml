@@ -1,17 +1,12 @@
 namespace: pak-system-demo
 
-imageCredentials:
-  registry: ""
-  username: ""
-  password: ""
-
 components:
   - name: web
     image: us.icr.io/pak-system/demo-web:latest
     runtime: nginx
     replicas: 1
     envs:
-      - REACT_APP_API_URL: ""
+      - REACT_APP_API_URL: "https://proxy-route-pak-system-demo.hybrid-mng-cluster-72eda05028d3eaf144f16ab86d45c024-0000.us-south.containers.appdomain.cloud"
     portName: http
     port: 8080
     targetPort: 8080
@@ -21,7 +16,7 @@ components:
     runtime: nodejs
     replicas: 1
     envs:
-      - TARGET_URL: "g"
+      - TARGET_URL: "http://c-04.private.us-south.link.satellite.cloud.ibm.com:32839"
     portName: http
     port: 8080
     targetPort: 8080
