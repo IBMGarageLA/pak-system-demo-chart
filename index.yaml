@@ -1,14 +1,14 @@
 apiVersion: v1
 entries:
-  pak-system-demo:
+  pak-system-management:
     - apiVersion: v2
       appVersion: 1.16.0
-      created: "2022-10-17T15:25:12.317421-03:00"
+      created: "2022-10-17T16:14:47.96244-03:00"
       description: A Helm chart for Kubernetes
-      digest: 7ea88e4529ae510f4a5e16a1494e8a7a7ba000a934fd6ce582bfd2e2afa98c09
-      name: pak-system-demo
+      digest: 659b4fe2fb4f2c572ec122a04ceebd35b7cf88536112a13d368f13e8f758ebc8
+      name: pak-system-management
       type: application
       urls:
-        - https://ibmgaragela.github.io/pak-system-demo-chart/pak-system-demo-0.1.0.tgz
+        - https://ibmgaragela.github.io/pak-system-demo-chart/pak-system-management-0.1.0.tgz
       version: 0.1.0
-generated: "2022-10-17T15:25:12.316057-03:00"
+generated: "2022-10-17T16:14:47.959739-03:00"
